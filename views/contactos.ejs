@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto</title>
+  <link rel="stylesheet" href="/public/contact.css">
+</head>
+<body>
+  
+  <main>
+    <aside class="social-icons">
+      <a href="URL_DE_TU_PERFIL_DE_FACEBOOK"><img src="/public/img/facebook.ico" alt="Facebook"></a>
+      <a href="URL_DE_TU_PERFIL_DE_TWITTER"><img src="/public/img/gorjeo.ico" alt="Twitter"></a>
+      <a href="URL_DE_TU_PERFIL_DE_INSTAGRAM"><img src="/public/img/instagram.ico" alt="Instagram"></a>
+  </aside>
+    <section id="contacto">
+      <div class="container">
+        <h2>Contáctanos</h2>
+        <form action="/contacto" method="POST">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+          </div>
+          <button type="submit" class="btn">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  
+</body>
+</html>

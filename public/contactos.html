@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto</title>
+  <link rel="stylesheet" href="/public/contact.css">
+  <link rel="shortcut icon" href="/public/img/silla.ico" type="image/x-icon">
+</head>
+<body>
+
+
+  <header>
+    <div class="container">
+         <img class="imglogo=" src="/public/img/silla.ico" alt="">
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="contactos.html">Contacto</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="h"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+  <main>
+    <aside class="social-icons">
+      <a href="URL_DE_TU_PERFIL_DE_FACEBOOK"><img src="/public/img/facebook.ico" alt="Facebook"></a>
+      <a href="URL_DE_TU_PERFIL_DE_TWITTER"><img src="/public/img/gorjeo.ico" alt="Twitter"></a>
+      <a href="URL_DE_TU_PERFIL_DE_INSTAGRAM"><img src="/public/img/instagram.ico" alt="Instagram"></a>
+  </aside>
+  
+    <section id="contacto">
+      <div class="container">
+        <h2>Contáctanos</h2>
+        <form action="/contacto" method="POST">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+          </div>
+          <button type="submit" class="btn">Enviar</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container">
+        <p>&copy; 2024 JORGE-MUEBLES. Todos los derechos reservados.</p>
+        <ul class="footer-links">
+            <li><a href="#">Términos y Condiciones</a></li>
+            <li><a href="#">Política de Privacidad</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+        
+    </div>
+</footer>
+
+ 
+</body>
+</html>

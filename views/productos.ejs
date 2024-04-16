@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos</title>
+  <link rel="stylesheet" href="/public/produ.css">
+</head>
+<body>
+  <%- include('partials/header') %>
+  <main>
+    <aside class="social-icons">
+      <a href="URL_DE_TU_PERFIL_DE_FACEBOOK"><img src="/public/img/facebook.ico" alt="Facebook"></a>
+      <a href="URL_DE_TU_PERFIL_DE_TWITTER"><img src="/public/img/gorjeo.ico" alt="Twitter"></a>
+      <a href="URL_DE_TU_PERFIL_DE_INSTAGRAM"><img src="/public/img/instagram.ico" alt="Instagram"></a>
+  </aside>
+    <section id="productos">
+      <div class="container">
+        <h2>Todos los Productos</h2>
+       
+          <div class="product">
+            <img src="/public/img/multimueble.jpeg" alt="<%= producto.nombre %>">
+            <h3><%= producto.nombre %></h3>
+            <p class="price">$<%= producto.precio %></p>
+            <a href="#" class="btn">Comprar</a>
+          </div>
+        
+      </div>
+    </section>
+  </main>
+  <%- include('partials/footer') %>
+</body>
+</html>
