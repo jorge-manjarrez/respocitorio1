@@ -2,8 +2,10 @@
   "dependencies": {
     "ejs": "^3.1.9",
     "express": "^4.19.2",
+    "mysql2": "^3.9.7",
     "nodemon": "^3.1.0",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "sequelize": "^6.37.3"
   },
   "name": "proyecto-web",
   "version": "1.0.0",
