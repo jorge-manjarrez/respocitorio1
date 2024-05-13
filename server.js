@@ -1,57 +1,28 @@
 const express = require('express');
 const app = express();
+const path = require('path');
+
+// Configuración de la vista
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
-app.get('/', function(req,res){
-    res.render('index');
-   /* res.sendFile('index.html',{
-        root:__dirname
-    });*/
-    app.get('/productos', (req, res) => {
+app.set('views', path.join(__dirname, 'views'));
 
-        const productos = [
-          { id: 1, nombre: 'Producto 1', precio: 50 },
-          { id: 2, nombre: 'Producto 2', precio: 40 },
-       
-        ];
-      
-        res.render('productos', { productos });
-        const socialLinks = document.querySelectorAll('.social-icons a');
+// Middleware para servir archivos estáticos
+app.use(express.static(path.join(__dirname, 'public')));
 
-
-socialLinks.forEach(link => {
-  link.addEventListener('click', (event) => {
-   
-    const url = event.currentTarget.href;
-
-    
-    window.open(url, '_blank');
-  });
-});
-        
-      });
-      app.get('/contactos', (req, res) => {
-        res.render('contactos');
-      });    
-
-      
-      document.addEventListener('DOMContentLoaded', function() {
-        // Obtener todos los enlaces del aside
-        const socialLinks = document.querySelectorAll('.social-icons a');
-      
-        // Agregar un evento de clic a cada enlace
-        socialLinks.forEach(link => {
-          link.addEventListener('click', (event) => {
-            // Obtener la URL del enlace
-            const url = event.currentTarget.href;
-      
-            // Abrir la URL en una nueva pestaña o ventana
-            window.open(url, '_blank');
-          });
-        });
-      });
+// Rutas
+app.get('/productos', (req, res) => {
+    res.render('productos');
 });
 
+app.get('/contactos', (req, res) => {
+    res.render('contactos');
+});  
 
+app.get('/terraza', function(req, res) {
+    res.render('terraza');
+}); 
 
-app.listen(3000);
+// Iniciar servidor
+app.listen(3000, () => {
+    console.log('Servidor corriendo en el puerto 3000');
+});
