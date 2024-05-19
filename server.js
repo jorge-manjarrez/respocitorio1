@@ -6,53 +6,43 @@ const path = require('path');
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+const camastrosRouter = require('./routes/camastroRouter');
+const comedorRouter = require('./routes/comedorRouter');
+const contactosRouter = require('./routes/contactosRouter');
+const habitacionRouter = require('./routes/habitacioonRouter');
+const niñasRouter = require('./routes/niñasRouter');
+const niñosRouter = require('./routes/niñosRouter');
+const productosRouter = require('./routes/productRouter');
+const salaRouter = require('./routes/salaRouter');
+const sillasRouter = require('./routes/sillasRouter')
+const terrazaRouter = require('./routes/terrazaRouter')
+
+
+
+
+
 // Middleware para servir archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 // Rutas
-app.get('/index', (req, res) => {
-  res.render('index');
+app.use(camastrosRouter);
+app.use(comedorRouter);
+app.use(contactosRouter);
+app.use(habitacionRouter);
+app.use(niñasRouter);
+app.use(niñosRouter);
+app.use(productosRouter);
+app.use(salaRouter);
+app.use(sillasRouter);
+app.use(terrazaRouter);
+
+app.get('/', function (req, res) {
+
+  res.render("index")
 });
-app.get('/productos', (req, res) => {
-    res.render('productos');
-});
 
-app.get('/contactos', (req, res) => {
-    res.render('contactos');
-});  
-
-app.get('/terraza', function(req, res) {
-    res.render('terraza');
-}); 
-app.get('/sillas', function(req, res) {
-  res.render('sillas');
-  
-}); 
-app.get('/camastros', function(req, res) {
-  res.render('camastros');
-  
-}); 
-app.get('/comedor_de_exteriores', function(req, res) {
-  res.render('comedor_de_exteriores');
-  
-}); 
-app.get('/sala', function(req, res) {
-  res.render('sala');
-  
-}); 
-app.get('/habitacion', function(req, res) {
-  res.render('habitacion');
-  
-}); 
-
-app.get('/niños', function(req, res) {
-  res.render('niños');
-  
-}); 
-app.get('/niñas', function(req, res) {
-  res.render('niñas');
-  
-}); 
 // Iniciar servidor
 app.listen(3000, () => {
     console.log('Servidor corriendo en el puerto 3000');

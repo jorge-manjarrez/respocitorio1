@@ -1,27 +1,33 @@
-const { noBoolOperatorAliases } = require('sequelize/lib/utils/deprecations');
+const { Sequelize, DataTypes } = require('sequelize');
 const dbConfig = require('../config/dbConfig');
-const {sequalize,DataTypes} = require('sequelize');
 
-const sequalize = new sequalize(
-    dbConfig.DB,
-    dbConfig.USER,
-    dbConfig.PASSWORD,{
-        host:dbConfig.HOST,
-        dialect:dbConfig.dialect,
-        operatorAliases:false,
+async function connectToDatabase() {
+    const sequelize = new Sequelize(
+        dbConfig.DB,
+        dbConfig.USER,
+        dbConfig.PASSWORD,{
+            host: dbConfig.HOST,
+            dialect: dbConfig.dialect,
+            operatorAliases: false,
+        }
+    );
+
+    try {
+        await sequelize.authenticate();
+        console.log('La conexión se ha establecido correctamente.');
+    } catch (error) {
+        console.error('No se pudo establecer la conexión a la base de datos:', error);
     }
-)
-try {
-     sequelize.authenticate();
-    console.log('La conexion se ha establecido correctamente.');
-  } catch (error) {
-    console.error('no se pudo establecer la conexion a la base de datos :', error);
-  }
-  const deb = {}
-  db.Sequalize = Sequalize
-  db.sequalize = sequalize
 
-  db.productos = require('../models/productModel1')(sequalizel, DataTypes)
-  db.sequalize.sync({force:false})
+    const db = {};
 
-  module.exports = db 
+    db.Sequelize = Sequelize;
+    db.sequelize = sequelize;
+
+    db.productos = require('../models/productModel1')(sequelize, DataTypes);
+
+ 
+
+    module.exports = db;
+}
+
