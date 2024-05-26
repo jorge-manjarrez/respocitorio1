@@ -1,9 +1,10 @@
-module.exports = {
+const { Sequelize } = require('sequelize');
 
-    USER: "root",
-    PASSWORD: "",
-    DB: "db_comercio",
-    HOST: "127.0.0.1",
-    dialect: "Mysql" 
-    
-}
+const sequelize = new Sequelize('db_comercio', 'root', '', {
+  host: 'localhost',
+  dialect: 'mysql',
+  port: 3308, // Asegúrate de que este puerto sea correcto
+});
+
+
+module.exports = sequelize;

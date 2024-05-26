@@ -24,10 +24,12 @@ async function connectToDatabase() {
     db.Sequelize = Sequelize;
     db.sequelize = sequelize;
 
-    db.productos = require('../models/productModel1')(sequelize, DataTypes);
+    db.productos = require('../models/Pedido')(sequelize, DataTypes);
 
  
 
     module.exports = db;
 }
+
+connectToDatabase();
 
